@@ -6,9 +6,13 @@ import pickle
 # ==========================================
 # 1. Load the Model
 # ==========================================
+
+base_path = os.path.dirname(os.path.abspath(__file__))
+pkl_path = os.path.join(base_path, 'best_health_model.pkl')
+
 @st.cache_resource
 def load_model():
-    with open('best_health_model.pkl', 'rb') as file:
+    with open(pkl_path', 'rb') as file:
         model = pickle.load(file)
     return model
 
