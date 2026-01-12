@@ -8,14 +8,14 @@ import os
 # 1. Load the Model
 # ==========================================
 
-base_path = os.path.dirname(os.path.abspath(__file__))
-pkl_path = os.path.join(base_path, 'best_health_model.pkl')
-
-@st.cache_resource
 def load_model():
-    with open(pkl_path, 'rb') as file:
-        model = pickle.load(file)
-    return model
+    # Get the directory that Main.py is in
+    base_path = os.path.dirname(__file__)
+    # Join it with your filename
+    file_path = os.path.join(base_path, "best_health_model.pkl") 
+    
+    with open(file_path, "rb") as file:
+        return pickle.load(file)
 
 try:
     model = load_model()
